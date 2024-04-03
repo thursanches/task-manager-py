@@ -9,12 +9,28 @@ def adicionar_tarefa(tarefas, descricao_tarefa):
     print(f"Tarefa {descricao_tarefa} foi adicionada com sucesso!")
     return
 
+def ver_tarefas(tarefas):
+    print("\nLista de tarefas:")
+    for indice, tarefa in enumerate(tarefas, start=1):
+        status = "✓" if tarefa["completada"] else " "
+        print(f"{indice}. [{status}] {tarefa["tarefa"]}")
+    return
+
+def atualizar_tarefas(tarefas, indice_tarefa, nova_tarefa):
+    indice_tarefa_ajustado = int(indice_tarefa) -1
+    if indice_tarefa_ajustado <= 0 or indice_tarefa_ajustado > len(tarefas):
+        tarefas[indice_tarefa_ajustado]["tarefa"] = nova_tarefa
+        print(f"Tarefa {indice_tarefa} foi atualizada para{nova_tarefa}!")
+    else:
+        print("Indice não existe!")
+    return
+
 tarefas = []
 
 while True:
     print("\n Menu do Gerenciador de Lista de tarefas:")
     print("1. Cadastrar tarefa")
-    print("2. Ver tarefa")
+    print("2. Ver tarefas")
     print("3. Atualizar tarefa")
     print("4. Completar tarefa")
     print("5. Deletar tarefas completadas")
@@ -22,11 +38,18 @@ while True:
 
     escolha = input("Escolha uma opção: ")
 
-    if escolha == 1:
+    if escolha == "1":
         descricao_tarefa = input("Digite a descricao da tarefa: ")
         adicionar_tarefa(tarefas, descricao_tarefa)
-
-    elif escolha == 6:
+    elif escolha == "2":
+        ver_tarefas(tarefas)
+    elif escolha == "3":
+        ver_tarefas(tarefas)
+        indice_tarefa = input("Digite o número da tarefa que deseja atualizar: ")
+        novo_nome = input("Digite a nova tarefa: ")
+        atualizar_tarefas(tarefas, indice_tarefa, novo_nome)
+    
+    elif escolha == "6":
         break
     
 print("Programa finalizado")
