@@ -18,7 +18,7 @@ def ver_tarefas(tarefas):
 
 def atualizar_tarefas(tarefas, indice_tarefa, nova_tarefa):
     indice_tarefa_ajustado = int(indice_tarefa) -1
-    if indice_tarefa_ajustado <= 0 or indice_tarefa_ajustado > len(tarefas):
+    if indice_tarefa_ajustado >= 0 or indice_tarefa_ajustado < len(tarefas):
         tarefas[indice_tarefa_ajustado]["tarefa"] = nova_tarefa
         print(f"Tarefa {indice_tarefa} foi atualizada para{nova_tarefa}!")
     else:
@@ -28,11 +28,11 @@ def atualizar_tarefas(tarefas, indice_tarefa, nova_tarefa):
 def completar_tarefa(tarefas, indice_tarefa):
     indice_tarefa_ajustado = int(indice_tarefa) -1
     tarefas[indice_tarefa_ajustado]["completada"] = True
-    print("Tarefa {indice_tarefa} marcada como completada")
+    print(f"Tarefa {indice_tarefa} marcada como completada")
     return
 
-def deletar_tarefas_completadas(tarefas, indice_tarefa):
-    print("Tarefa {indice_tarefa} deletada")
+def deletar_tarefas_completadas(tarefas):
+    print(f"Tarefa completadas foram deletadas")
     for tarefa in tarefas:
         if tarefa["completada"]:
             tarefas.remove(tarefa)
