@@ -1,9 +1,17 @@
 <h1>Task Manager</h1>
-<p>Project carried out in Rocketseat's complete Python course. Where is possible to add, view, update, complete or delete tasks.</p>
-<h2>To run:</h2>
+
+<p>Organize your tasks efficiently with this simple Python application. Add, view, edit, mark complete, or delete tasks.</p>
+
+<h2>Requirements</h2>
 <ol>
+  Dependencies install
   <li>
   
-    install python
+    python 3.11.5 or higher
+  </li>
+  To run at Bash:
+  <li>
+
+    python3 'name_of_archieve.py'
   </li>
 </ol>
